@@ -1,5 +1,5 @@
 function! excel_vba_echodoc#echodoc()
-  if g:loaded_echodoc
+  if exists(g:loaded_echodoc) && g:loaded_echodoc
 		call echodoc#register('excel_vba_echodoc', s:doc_dict)
 	endif
 endfunction
