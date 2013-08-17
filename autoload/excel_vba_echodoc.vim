@@ -1,6 +1,7 @@
 function! excel_vba_echodoc#echodoc()
-  if exists(g:loaded_echodoc) && g:loaded_echodoc
-		call echodoc#register('excel_vba_echodoc', s:doc_dict)
+  if !exists("g:loaded_echodoc") 
+    execute ":EchoDocEnable"
+    call excel_vba_echodoc#echodoc()
 	endif
 endfunction
 
