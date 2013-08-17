@@ -1,18 +1,19 @@
 function! excel_vba_echodoc#echodoc()
-  if exists(g:loaded_echodoc) && g:loaded_echodoc
-		call echodoc#register('excel_vba_echodoc', s:doc_dict)
+  if !exists("g:loaded_echodoc") 
+    execute ":EchoDocEnable"
 	endif
+  call echodoc#register('excel_vba_echodoc', s:doc_dict)
 endfunction
 
 let s:doc_dict = {
   \ 'name' : 'excel_vba_echodoc',
-  \ 'rank' : 100,
+  \ 'rank' : 1,
   \ 'filetypes' : { 'vb' : 1, 'basic' : 1 },
   \ }
 
 function! s:doc_dict.search(cur_text)
 	let ret = []
-  let g:temp_cur_text = a:cur_text
+  "let g:temp_cur_text = a:cur_text
   "let g:temp_result = {}
   for key in keys(s:excel_vba_text)
     "let g:temp_result[key] = matchstr(a:cur_text, key)
